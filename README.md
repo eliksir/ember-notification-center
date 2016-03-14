@@ -1,6 +1,7 @@
-# Ember-notification-center
+# Ember Notification Center
 
-This README outlines the details of collaborating on this Ember addon.
+Ember Notification Center is an [Ember](http://emberjs.com/) addon for managing
+and displaying notification messages.
 
 ## Installation
 
