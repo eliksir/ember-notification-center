@@ -1,0 +1,21 @@
+<button onclick={{action "toggleVisibility"}}>
+  {{yield}}
+</button>
+
+{{#if renderNotifications}}
+  <ol class="notifications">
+    {{#each topNotifications as |notification|}}
+      <li class="{{if notification.important 'important'}}">
+        <span>
+          {{notification.message}}
+        </span>
+      </li>
+    {{else}}
+      <li class="empty">
+        <span>
+          {{noNotificationsText}}
+        </span>
+      </li>
+    {{/each}}
+  </ol>
+{{/if}}

@@ -1,6 +1,9 @@
 import Ember from 'ember';
+import layout from '../templates/components/notification-list';
 
 export default Ember.Component.extend({
+  layout,
+
   ordering: ['important:desc', 'created:desc'],
 
   /**
