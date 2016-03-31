@@ -6,8 +6,11 @@
   <ol class="notifications">
     {{#each topNotifications as |notification|}}
       <li class="{{if notification.important 'important'}}">
-        <span>
+        <span class="message">
           {{notification.message}}
+        </span>
+        <span class="date">
+          {{notification.creationDate}}
         </span>
       </li>
     {{else}}
