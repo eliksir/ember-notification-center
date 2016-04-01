@@ -5,7 +5,8 @@
 {{#if renderNotifications}}
   <ol class="notifications">
     {{#each topNotifications as |notification|}}
-      <li class="{{if notification.important 'important'}}">
+      <li class="{{if notification.important 'important'}}
+                 {{unless notification.seen 'new'}}">
         <span class="message">
           {{notification.message}}
         </span>
