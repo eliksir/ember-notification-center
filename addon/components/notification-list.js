@@ -68,11 +68,6 @@ export default Ember.Component.extend({
    */
   showNotifications () {
     this.set('renderNotifications', true);
-
-    this.get('topNotifications').filterBy('seen', false).forEach(unseen => {
-      unseen.set('seen', true);
-      unseen.save();
-    });
   },
 
   /**
@@ -80,6 +75,11 @@ export default Ember.Component.extend({
    */
   hideNotifications () {
     this.set('renderNotifications', false);
+
+    this.get('topNotifications').filterBy('seen', false).forEach(unseen => {
+      unseen.set('seen', true);
+      unseen.save();
+    });
   },
 
   /**
