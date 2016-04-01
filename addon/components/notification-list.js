@@ -4,7 +4,10 @@ import layout from '../templates/components/notification-list';
 export default Ember.Component.extend({
   layout,
 
-  classNameBindings: ['hasImportantNotifications'],
+  classNameBindings: [
+    'hasImportantNotifications',
+    'hasNewNotifications',
+  ],
 
   ordering: ['important:desc', 'created:desc'],
 
@@ -59,7 +62,13 @@ export default Ember.Component.extend({
     'orderedNotifications', 'important'
   ),
 
+  newNotifications: Ember.computed.filterBy(
+    'orderedNotifications', 'seen', false
+  ),
+
   hasImportantNotifications: Ember.computed.notEmpty('importantNotifications'),
+
+  hasNewNotifications: Ember.computed.notEmpty('newNotifications'),
 
   /**
    * Show the list of notifications.
