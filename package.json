@@ -1,6 +1,6 @@
 {
   "name": "ember-notification-center",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A notification center for your Ember app",
   "directories": {
     "doc": "doc",
