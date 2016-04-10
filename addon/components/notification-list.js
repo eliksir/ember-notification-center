@@ -19,7 +19,7 @@ export default Ember.Component.extend({
   notifications: [],
 
   /**
-   * Number of notifications to show.
+   * Maximum number of notifications to show.
    *
    * @type {Number}
    */
