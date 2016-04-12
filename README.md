@@ -1,4 +1,4 @@
-# Ember Notification Center
+# Ember Notification Center [![Ember Observer Score](https://emberobserver.com/badges/ember-notification-center.svg)](https://emberobserver.com/addons/ember-notification-center)
 
 Ember Notification Center is an [Ember](http://emberjs.com/) addon for managing
 and displaying notification messages.
@@ -23,7 +23,7 @@ rendering such models.
 The component can be used as follows, assuming that `notifications` is bound to
 an array of `notification` model instances:
 
-```
+```hbs
 {{#notification-list notifications=notifications}}
   Click me to view your notifications!
 {{/notification-list}}
