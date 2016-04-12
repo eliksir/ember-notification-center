@@ -1,4 +1,4 @@
-# Ember Notification Center [![Ember Observer Score](https://emberobserver.com/badges/ember-notification-center.svg)](https://emberobserver.com/addons/ember-notification-center)
+# Ember Notification Center [![Build Status](https://travis-ci.org/eliksir/ember-notification-center.svg?branch=master)](https://travis-ci.org/eliksir/ember-notification-center) [![Ember Observer Score](https://emberobserver.com/badges/ember-notification-center.svg)](https://emberobserver.com/addons/ember-notification-center)
 
 Ember Notification Center is an [Ember](http://emberjs.com/) addon for managing
 and displaying notification messages.
