@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('notification-list', 'Unit | Component | notification list', {
@@ -15,11 +16,11 @@ test('it exists', function (assert) {
 test('notifications are ordered by date', function (assert) {
   assert.expect(3);
 
-  const notifications = [
+  const notifications = Ember.A([
     { created: new Date(2016, 5, 1) },
     { created: new Date(2016, 5, 2) },
     { created: new Date(2016, 5, 3) },
-  ];
+  ]);
 
   const component = this.subject({ notifications });
   const orderedNotifications = component.get('orderedNotifications');
@@ -32,12 +33,12 @@ test('notifications are ordered by date', function (assert) {
 test('notifications are ordered by importance', function (assert) {
   assert.expect(1);
 
-  const notifications = [
+  const notifications = Ember.A([
     { important: false, created: new Date(2016, 5, 1) },
     { important: false, created: new Date(2016, 5, 2) },
     { important: true, created: new Date(2016, 5, 3) },
     { important: false, created: new Date(2016, 5, 4) },
-  ];
+  ]);
 
   const component = this.subject({ notifications });
   const orderedNotifications = component.get('orderedNotifications');
@@ -48,12 +49,12 @@ test('notifications are ordered by importance', function (assert) {
 test('only the `numNotifications` first notifications are listed', function (assert) {
   assert.expect(3);
 
-  const notifications = [
+  const notifications = Ember.A([
     { created: new Date(2016, 5, 1) },
     { created: new Date(2016, 5, 2), important: true },
     { created: new Date(2016, 5, 3) },
     { created: new Date(2016, 5, 4) },
-  ];
+  ]);
 
   const component = this.subject({ notifications, numNotifications: 2 });
   const topNotifications = component.get('topNotifications');
@@ -66,11 +67,11 @@ test('only the `numNotifications` first notifications are listed', function (ass
 test('only important notifications are important', function (assert) {
   assert.expect(2);
 
-  const notifications = [
+  const notifications = Ember.A([
     { important: false },
     { important: true },
     { important: false },
-  ];
+  ]);
 
   const component = this.subject({ notifications });
   const newNotifications = component.get('importantNotifications');
@@ -82,7 +83,11 @@ test('only important notifications are important', function (assert) {
 test('only unseen notifications are new', function (assert) {
   assert.expect(2);
 
-  const notifications = [{ seen: true }, { seen: false }, { seen: true }];
+  const notifications = Ember.A([
+    { seen: true },
+    { seen: false },
+    { seen: true },
+  ]);
 
   const component = this.subject({ notifications });
   const newNotifications = component.get('newNotifications');

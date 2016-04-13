@@ -16,7 +16,7 @@ export default Ember.Component.extend({
    *
    * @type {Ember.Array}
    */
-  notifications: [],
+  notifications: Ember.A(),
 
   /**
    * Maximum number of notifications to show.

@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -35,7 +36,9 @@ test('it renders a message when there are no notifications', function (assert) {
 test('it renders a notification with message and date', function (assert) {
   assert.expect(3);
 
-  this.set('notifications', [{ message: 'Foo', creationDate: new Date() }]);
+  this.set('notifications', Ember.A([
+    { message: 'Foo', creationDate: new Date() },
+  ]));
 
   this.render(hbs`{{notification-list renderNotifications=true
                     notifications=notifications}}`);
@@ -57,7 +60,7 @@ test('it renders a notification with message and date', function (assert) {
 test('it renders several notifications', function (assert) {
   assert.expect(3);
 
-  this.set('notifications', [{ message: 'Foo' }, { message: 'Bar' }]);
+  this.set('notifications', Ember.A([{ message: 'Foo' }, { message: 'Bar' }]));
 
   this.render(hbs`{{notification-list renderNotifications=true
                     notifications=notifications}}`);
@@ -78,7 +81,10 @@ test('it renders several notifications', function (assert) {
 test('it renders important notifications with the class `important`', function (assert) {
   assert.expect(3);
 
-  this.set('notifications', [{ important: true }, { important: false }]);
+  this.set('notifications', Ember.A([
+    { important: true },
+    { important: false },
+  ]));
 
   this.render(hbs`{{notification-list renderNotifications=true
                     notifications=notifications}}`);
@@ -93,7 +99,7 @@ test('it renders important notifications with the class `important`', function (
 test('it renders unseen notifications with the class `new`', function (assert) {
   assert.expect(3);
 
-  this.set('notifications', [{ seen: false }, { seen: true }]);
+  this.set('notifications', Ember.A([{ seen: false }, { seen: true }]));
 
   this.render(hbs`{{notification-list renderNotifications=true
                     notifications=notifications}}`);
@@ -108,10 +114,10 @@ test('it renders unseen notifications with the class `new`', function (assert) {
 test('it renders no more than `numNotifications` notifications', function (assert) {
   assert.expect(1);
 
-  this.set('notifications', [
+  this.set('notifications', Ember.A([
     { message: 'a' }, { message: 'b' },
     { message: 'c' }, { message: 'd' },
-  ]);
+  ]));
 
   this.render(hbs`{{notification-list renderNotifications=true
                     notifications=notifications numNotifications=3}}`);
