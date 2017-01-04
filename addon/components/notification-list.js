@@ -55,7 +55,7 @@ export default Ember.Component.extend({
   topNotifications: Ember.computed('orderedNotifications', function () {
     const notifications = this.get('orderedNotifications');
 
-    return notifications.slice(0, this.get('numNotifications'));
+    return Ember.A(notifications.slice(0, this.get('numNotifications')));
   }),
 
   importantNotifications: Ember.computed.filterBy(
