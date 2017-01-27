@@ -45,6 +45,17 @@ Below is an example of how the notification list can look when styled.
 
 ![Example of styled notification list](screenshots/example.png)
 
+You can also specify the header property which will add a header to
+the notifications list.
+
+```hbs
+{{#notification-list
+  header="Notification Header"
+  notifications=notifications}}
+  ...
+{{/notification-list}}
+```
+
 ## Running Tests
 
 * `npm test` (Runs `ember try:testall` to test the addon against multiple Ember versions)

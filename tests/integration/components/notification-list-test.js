@@ -22,6 +22,18 @@ test('it renders', function (assert) {
   assert.equal(this.$().text().trim(), 'Template block text');
 });
 
+test('header is shown when header property is specified', function (assert) {
+  assert.expect(1);
+
+  this.render(hbs`{{notification-list header="notification header"}}`);
+
+  assert.equal(
+    this.$('notification-header').text().trim(),
+    'notification header',
+    'proper notification header text is rendered'
+  );
+});
+
 test('it renders a message when there are no notifications', function (assert) {
   assert.expect(1);
 
