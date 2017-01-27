@@ -12,6 +12,13 @@ export default Ember.Component.extend({
   ordering: ['important:desc', 'created:desc'],
 
   /**
+   * Notification header. Can get overridden by passing in param.
+   *
+   * @type {Boolean}
+   */
+  header: '',
+
+  /**
    * Notifications to show.
    *
    * @type {Ember.Array}
@@ -115,6 +122,24 @@ export default Ember.Component.extend({
       'click', this.get('_documentClickEvent'), true
     );
   }),
+
+  /**
+   * Throw exception if header is passed in and is not a string value
+   */
+  _assertHeader() {
+    const notificationsHeader = this.get('header');
+    const notifcationHeaderType = typeof notificationsHeader;
+    if (!notificationsHeader && notifcationHeaderType === 'boolean') {
+      Ember.assert('You cannot pass in `false` for the header');
+    } else if (notificationsHeader && notifcationHeaderType !== 'string') {
+      Ember.assert('You must pass in a string for the header');
+    }
+  },
+
+  init() {
+    this._super(...arguments);
+    this._assertHeader();
+  },
 
   actions: {
     /**

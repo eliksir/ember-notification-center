@@ -13,6 +13,32 @@ test('it exists', function (assert) {
   assert.ok(!!component);
 });
 
+test('_assertHeader throws proper exception - header=false', function (assert) {
+  assert.expect(1);
+
+  const component = this.subject({});
+  component.set('header', false);
+
+  assert.throws(
+    () => component._assertHeader(),
+    /You cannot pass in `false` for the header/,
+    'Exception thrown when `false` is passed in for header'
+  );
+});
+
+test('_assertHeader throws proper exception - header=123', function (assert) {
+  assert.expect(1);
+
+  const component = this.subject({});
+  component.set('header', 123);
+
+  assert.throws(
+    () => component._assertHeader(),
+    /You must pass in a string for the header/,
+    'Exception thrown when number is passed in for header'
+  );
+});
+
 test('notifications are ordered by date', function (assert) {
   assert.expect(3);
 
