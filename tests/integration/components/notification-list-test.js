@@ -28,7 +28,7 @@ test('header is shown when header property is specified', function (assert) {
   this.render(hbs`{{notification-list header="notification header"}}`);
 
   assert.equal(
-    this.$('notification-header').text().trim(),
+    this.$('.notification-header').text().trim(),
     'notification header',
     'proper notification header text is rendered'
   );
