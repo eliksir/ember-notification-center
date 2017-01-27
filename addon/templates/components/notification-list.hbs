@@ -2,6 +2,10 @@
   {{yield}}
 </button>
 
+{{#if header}}
+  <h2 class="notification-header">{{header}}</h2>
+{{/if}}
+
 {{#if renderNotifications}}
   <ol class="notifications">
     {{#each topNotifications as |notification|}}
