@@ -124,7 +124,7 @@ export default Ember.Component.extend({
   }),
 
   /**
-   * Throw exception if header is passed in and is not a string value
+   * Throw exception if header is passed in and is not a string value.
    */
   _assertHeader () {
     const notificationsHeader = this.get('header');
