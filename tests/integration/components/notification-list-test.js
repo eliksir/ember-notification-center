@@ -34,6 +34,17 @@ test('header is shown when header property is specified', function (assert) {
   );
 });
 
+test('no header is shown when header property is not specified', function (assert) {
+  assert.expect(1);
+
+  this.render(hbs`{{notification-list}}`);
+
+  assert.notOk(
+    this.$('.notification-header').length,
+    'proper notification header text is rendered'
+  );
+});
+
 test('it renders a message when there are no notifications', function (assert) {
   assert.expect(1);
 
