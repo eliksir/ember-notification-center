@@ -14,9 +14,9 @@ export default Ember.Component.extend({
   ordering: ['important:desc', 'created:desc'],
 
   /**
-   * Notification header. Can get overridden by passing in param.
+   * Notification list header.
    *
-   * @type {Boolean}
+   * @type {String}
    */
   header: '',
 
@@ -128,9 +128,9 @@ export default Ember.Component.extend({
   }),
 
   /**
-   * Throw exception if header is passed in and is not a string value
+   * Throw exception if header is passed in and is not a string value.
    */
-  _assertHeader() {
+  _assertHeader () {
     const notificationsHeader = this.get('header');
     const notifcationHeaderType = typeof notificationsHeader;
     if (!notificationsHeader && notifcationHeaderType === 'boolean') {
@@ -140,7 +140,7 @@ export default Ember.Component.extend({
     }
   },
 
-  init() {
+  init () {
     this._super(...arguments);
     this._assertHeader();
   },
