@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import layout from '../templates/components/notification-list';
 
+const NO_NOTIFICATIONS_TEXT = 'You have no notifications yet.';
+
 export default Ember.Component.extend({
   layout,
 
@@ -44,7 +46,9 @@ export default Ember.Component.extend({
    *
    * @type {String}
    */
-  noNotificationsText: 'You have no notifications yet.',
+  noNotificationMessage: Ember.computed('noNotificationText', function () {
+    return this.getWithDefault('noNotificationText', NO_NOTIFICATIONS_TEXT);
+  }),
 
   /**
    * Notifications ordered by importance and date.

@@ -121,3 +121,18 @@ test('only unseen notifications are new', function (assert) {
   assert.equal(newNotifications.length, 1);
   assert.equal(newNotifications[0], notifications[1]);
 });
+
+test('`noNotificationMessage` is set properly if `noNotificationText` is sent', function (assert) {
+  assert.expect(1);
+
+  const noNotificationText = 'test message';
+  const component = this.subject({
+    noNotificationText,
+  });
+  const noNotificationMessage = component.get('noNotificationMessage');
+
+  assert.equal(
+    noNotificationMessage,
+    noNotificationText,
+    '`noNotificationMessage` is properly sent');
+});
